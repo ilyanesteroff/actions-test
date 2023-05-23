@@ -1,6 +1,9 @@
 name: Greetings
 
 on:
+  push:
+    branches: ["main"]
+
   workflow_dispatch:
 
 jobs:
@@ -115,6 +118,7 @@ jobs:
       - uses: ./.github/actions/test
         with:
           env: "preprod"
+
   deploy-to-prod:
     runs-on: self-hosted
     needs: [tests-on-preprod]
