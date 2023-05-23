@@ -1,0 +1,14 @@
+inputs:
+  env:
+    description: "Testing environment"
+    default: "dev"
+runs:
+  using: "composite"
+  steps:
+    - name: Test programm
+      working-directory: test-dir
+      run: |
+        echo Testing of programm from ${{ inputs.env }}
+        npm install
+        npm run greetings greetings_${{ inputs.env }}
+      shell: cmd
