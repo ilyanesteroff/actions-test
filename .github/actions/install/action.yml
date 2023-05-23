@@ -1,17 +1,9 @@
 runs:
   using: "composite"
   steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Python environment
-      uses: actions/setup-python@v2
-      with:
-        python-version: "3.8"
-
-    - name: Install dependencies
+    - name: Install required libs
       working-directory: deploy-dir
       run: |
         echo Installing required libraries
         pip install -r requirements.txt
-      shell: cmd
+      shell: bash
