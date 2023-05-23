@@ -3,6 +3,9 @@ runs:
   steps:
     - name: Install required libs
       working-directory: deploy-dir
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.8"
       run: |
         echo Installing required libraries
         pip install -r requirements.txt
